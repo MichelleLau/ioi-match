@@ -1,21 +1,33 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import { Divider, Container, Grid } from 'semantic-ui-react'
+import { Route, Redirect } from 'react-router-dom'
+import './App.css'
+import PrincipalsPage from './containers/PrincipalsPage'
+import AgentsPage from './containers/AgentsPage'
+import About from './containers/About'
+import Algo from './containers/Algo'
+
 
 class App extends Component {
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+    <Container>
+      <Grid >
+        <Grid.Row></Grid.Row>
+      <Grid.Row>
+        <Divider />
+      </Grid.Row>
+      <Redirect from="/" to='/about' />
+      <Route path='/principal' component={PrincipalsPage} />
+      <Route path='/agent' component={AgentsPage} />
+      <Route path='/about' component={About} />
+      <Route path='/algo' component={Algo} />
+
+      </Grid>
+    </Container>
+    )
   }
 }
 
-export default App;
+export default App
