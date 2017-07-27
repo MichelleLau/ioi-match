@@ -38,13 +38,11 @@ class PrincipalsPage extends Component {
 
   getPrincipals = () => Adaptors.Principals().then(principals => this.setState({principals}))
 
-
   getIOIs = (id) => Adaptors.IOIs(id).then(IOIs => this.setState({ IOIs }))
 
   getSponsors = (id) => Adaptors.Sponsors(id).then(sponsors => this.setState({ sponsors }))
 
   getNegotiations = (id) => Adaptors.PrincipalNegotiations(id).then(negotiations => this.setState({ negotiations }))
-
 
   createIOI = (IOI) => {
     Adaptors.CreateIOI(IOI, this.state.principal_id)
@@ -84,13 +82,17 @@ class PrincipalsPage extends Component {
 
   updateRating = (negPricID, update) => (
     Adaptors.UpdateNegotiationPrincipal(negPricID, update)
-    .then(negPrincipal => this.setState((prevState) => {
-      return {negotiations: prevState.negotiations.map(prevNeg => {
-        if (prevNeg.neg_prin_id === negPrincipal.id) prevNeg.rating = negPrincipal.rating
-        return prevNeg
-      })}
-    }))
+      .then(negPrincipal => {
+        this.setState((prevState) => {
+          return {negotiations: prevState.negotiations.map(prevNeg => {
+              if (prevNeg.neg_prin_id === negPrincipal.id) prevNeg.rating = negPrincipal.rating
+              return prevNeg
+          })}
+        })
+        this.getSponsors(negPrincipal.principal_id)
+      })
   )
+
 
   resetIOIProp = () => this.setState({IOI: false})
 
