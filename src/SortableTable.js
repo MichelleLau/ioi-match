@@ -3,16 +3,13 @@ import React, { Component } from 'react'
 import { Table } from 'semantic-ui-react'
 
 class SortableTable extends Component {
-  constructor(){
-    super()
-    this.state = {
+  state = {
       column: null,
       data: [],
       direction: null,
       keys: [],
       headers: []
     }
-  }
 
   componentWillReceiveProps = (nextProps) => {
     const { data, keys, headers } = nextProps
