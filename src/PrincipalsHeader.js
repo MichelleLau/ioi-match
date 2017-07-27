@@ -5,18 +5,23 @@ import { Link } from 'react-router-dom'
 
 
 class PrincipalsHeader extends Component {
+  state = {principals: []}
+
+  componentWillReceiveProps = (nextProps) => {
+    const { principals } = nextProps
+
+    const principalObjects = principals.map(principal => {
+      const obj = {key:`${principal.id}`, value:`${principal.name}`, text:`${principal.name}`}
+      return obj
+      }).sort((a, b) => a.text.localeCompare(b.text))
+
+    this.setState({principals: principalObjects})
+  }
 
   handleChange = (e, {value}) => this.props.principalSubmit(value)
 
-
-  principals = () => (
-    this.props.principals.map(principal => {
-      const obj = {key:`${principal.id}`, value:`${principal.name}`, text:`${principal.name}`}
-      return obj
-    }).sort((a, b) => a.text.localeCompare(b.text))
-  )
-
   render(){
+    const { principals } = this.state
 
     return(
       <Grid>
@@ -36,9 +41,10 @@ class PrincipalsHeader extends Component {
         <Grid.Column width='5' textAlign='center'>
         <Container>
         <Dropdown selection
+          loading={!principals}
           placeholder='Investor'
           name='principal'
-          options={this.principals()}
+          options={principals}
           onChange={this.handleChange}
           />
         </Container>

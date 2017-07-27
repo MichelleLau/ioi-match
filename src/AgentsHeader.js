@@ -5,17 +5,23 @@ import { Link } from 'react-router-dom'
 
 
 class AgentsHeader extends Component {
+  state = {agents: []}
 
-  handleChange = (e, {value}) => this.props.agentSubmit(value)
+  componentWillReceiveProps = (nextProps) => {
+    const { agents } = nextProps
 
-  agents = () => (
-    this.props.agents.map(agent => {
+    const agentObjects = agents.map(agent => {
       const obj = {key:`${agent.id}`, value:`${agent.id}`, text:`${agent.name}`}
       return obj
     }).sort((a, b) => a.text.localeCompare(b.text))
-  )
+
+    this.setState({agents: agentObjects})
+  }
+
+  handleChange = (e, {value}) => this.props.agentSubmit(value)
 
   render(){
+    const { agents } = this.state
 
     return (
       <Grid>
@@ -35,9 +41,10 @@ class AgentsHeader extends Component {
         <Grid.Column textAlign='center'>
         <Container>
         <Dropdown selection
+          loading={!agents.length}
           placeholder='Broker'
           name='agent'
-          options={this.agents()}
+          options={agents}
           onChange={this.handleChange}
           />
         </Container>

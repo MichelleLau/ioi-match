@@ -7,9 +7,9 @@ class AboutText extends Component {
   render() {
 
     return (
-      <Container text textAlign='justified'>
-        <h3>Problem Space</h3>
-        <p> IOI (indication of interest) Match is a market mechanism designed to make markets more efficent by aligning the interests of principals and agents (commonly known as the principal-agent problem). </p>
+      <Container textAlign='justified'>
+        <h3>About</h3>
+        <p>Indication of Interest (IOI) Match is a toy example of how non-financial mechanisms could be combined to create safer and more efficient financial market trading systems.  Specifically, IOI Match combines a reputation system and a ranked voting algorithm to create incentives to align the interests of agents and principals. </p>
         <h3>Key Features:</h3>
         <List bulleted>
         <List.Item><p>An annonymous pre-match minimizes information leakage.</p></List.Item>
