@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, List } from 'semantic-ui-react'
+import { Container, Segment, Image } from 'semantic-ui-react'
 
 
 class AboutText extends Component {
@@ -7,38 +7,48 @@ class AboutText extends Component {
   render() {
 
     return (
-      <Container textAlign='justified'>
-        <h3>About</h3>
-        <p>Indication of Interest (IOI) Match is a toy example of how non-financial mechanisms could be combined to create safer and more efficient financial market trading systems.  Specifically, IOI Match combines a reputation system and a ranked voting algorithm to create incentives to align the interests of agents and principals. </p>
-        <h3>Key Features:</h3>
-        <List bulleted>
-        <List.Item><p>An annonymous pre-match minimizes information leakage.</p></List.Item>
-        <List.Item><p>An indirect reputation system incentivizes agents to keep bad actors out of IOI Match.</p></List.Item>
-        </List>
-        <h3> Use Case:</h3>
-        <List bulleted>
-          <List.Item>
-            <p>IOI Match could be implemented in any market that requires principals to transact through an agent, but this demo is designed for an institution equity block market implementation.</p>
-          </List.Item>
-          <List.Item>
-            <p> An investor (principal) must be sponsored by a broker (agent) to participate.</p>
-          </List.Item>
-          <List.Item>
-            <p>Once sponsored, an investor can enter an IOI, which must include a ranked list of preferred brokers. </p>
-          </List.Item>
-          <List.Item>
-            <p> IOIs remain hidden until there is a match. A match is defined as at least one buy and one sell IOI in the same stock that share at least one common broker. If more than one common broker exists, a broker is chosen by a ranked voting algorithm.</p>
-          </List.Item>
-          <List.Item>
-            <p>Matched IOIs are revealed to the chosen broker who conducts a negotiation between investors outside of IOI match. When the negotation ends, the broker completes the negotation in IOI Match by marking each investor as either having traded or not traded. The investor can then rate the broker’s service on a scale from 1 - 5.</p>
-          </List.Item>
-          <List.Item>
-            <p>Investors have access the the total percentage of negotations managed by a broker that resulted in a trade (conversion rate) and a brokers overall investor rating.</p>
-          </List.Item>
-          <List.Item>
-            <p>This information should impact where an investor ranks a broker providing an incentive for brokers to only sponsor principals who send IOIs when they want to trade.</p>
-          </List.Item>
-        </List>
+      <Container text textAlign='justified'>
+        <h3>IOI Match</h3>
+        <p>IOI Match (Indication of Interest) is an anonymous pre-matching block trading mechanism designed to create a safer and more efficient block trading market. IOI Match combines a reputation system with a ranked voting algorithm to create an incentive for brokers to police investor behavior and remove bad actors. IOI Match could work with most asset classes, but this demo is for an equity market implementation.</p>
+        <h3>Sponsorship</h3>
+        <p>To participate, an investor must be sponsored by a broker. In this demo; brokers, investors and their sponsorship relationships have been pre-seeded.</p>
+        <h3>IOIs</h3>
+        <p>Investors enter indications of interest, which must include the stock, a side and a ranked list of brokers.</p>
+        <Image
+          src='/Assets/ioi.gif'
+          size='huge'
+          bordered={true}
+          />
+        <h3>Matches</h3>
+        <p>A match occurs when, at least, one buyer and, at least, one seller enters an IOI in the same stock and they share, at least, one common broker.</p>
+        <Image
+          src='/Assets/match.gif'
+          size='huge'
+          bordered={true}
+          />
+        <h3>Ranked Voting Algorithm</h3>
+        <p>When more then one common broker exists, a ranked voting algorithm determines which broker “wins” based on "votes" from the ranked broker lists.</p>
+        <Image
+          src='/Assets/rankedVoting.gif'
+          size='huge'
+          bordered={true}
+          />
+        <h3>Negotiations</h3>
+        <p>The winning broker recieves the stock and investor information and attempts to negotiate a transaction. When the negotiation is finished, the broker updates each investor as either having traded or not traded the negotiation as complete.</p>
+        <Image
+          src='/Assets/negotiation.gif'
+          size='huge'
+          bordered={true}
+          />
+        <h3>Incentives</h3>
+        <p>Brokers and investors each have a conversion score (the percentage of negotiations that resulted in a trade vs. their total number of negotiations). Investors have access to the conversion scores of their sponsor brokers and brokers have access to the conversion scores of the investors they sponsors.</p>
+        <p>Investors can use this information to determine how to rank their brokers, providing brokers with a strong incentive to only sponsor investors who enter IOIs when the intent to transact.</p>
+        <p>Additionally, investors can rank a brokers performance for each negotiation and investors have access to the cumulated rating of their sponsor brokers. A broker’s rating can add context to its conversion score as there maybe times when a broker acts in the best interest of an investor by managing a negotiation that does not result in a transaction.</p>
+        <Image
+          src='/Assets/rating.gif'
+          size='huge'
+          bordered={true}
+          />
       </Container>
     )
   }

@@ -63,7 +63,7 @@ class CompletedNegotiationsTable extends Component {
                   { headers[index] }
               </Table.HeaderCell>
             ))}
-            <Table.HeaderCell textAlign='center'> Edit </Table.HeaderCell>
+            <Table.HeaderCell textAlign='center'> Rating </Table.HeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>

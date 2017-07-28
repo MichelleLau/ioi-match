@@ -41,7 +41,7 @@ class PrincipalsHeader extends Component {
         <Grid.Column width='5' textAlign='center'>
         <Container>
         <Dropdown selection
-          loading={!principals}
+          loading={!principals.length}
           placeholder='Investor'
           name='principal'
           options={principals}
