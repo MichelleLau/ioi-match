@@ -1,11 +1,12 @@
 
-// const url = "http://localhost:3000"
-const url =  "https://ioi-match-api.herokuapp.com"
 
 const headers = {
     'content-type': 'application/json',
     'accept': 'application/json',
   }
+
+  // const url = "http://localhost:3000"
+  const url =  "https://ioi-match-api.herokuapp.com"
 
 export class Adaptors {
 
