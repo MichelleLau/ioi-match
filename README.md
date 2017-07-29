@@ -1,39 +1,15 @@
-# IOI Match
+# IOI Match (https://ioi-match.herokuapp.com/)
 
-IOI Match is a simple matching engine that makes it safer for principals to reveal preferences to an agent.
+IOI Match (Indication of Interest) is an anonymous pre-matching block trading mechanism designed to create a safer and more efficient block trading market. IOI Match combines a reputation system with a ranked voting algorithm to create an incentive for brokers to police investor behavior and remove bad actors. IOI Match could be implemented for any asset classes, but this demo is focused on an equity market implementation.
 
-The matching engine has two main design features:
-- Anonymous pre-matching
-- Reputation Incentives
+See https://ioi-match.herokuapp.com/about for a complete description.
 
-The steps are:
-- To participate a principal must be sponsored by an agent.
-- Principals enter indication of interests (IOIs) and a ranked listed of preferred brokers.
-- When two or more principal's IOIs match, the details are sent to the most preferred common broker.
-- The broker attempts to negotiate a transaction between the principals and communicates the result to the matching engine.
-- Each principal involved in a negotiation rates their satisfaction with the agent's negotiation.
-- A record is kept of:
-  - The percentage of negotiations that resulted in a transaction for each principal and agent.
-  - Each agent's average satisfaction rating.
+# Browser Client
+Github Repo: https://github.com/kylewstewart/ioi-match
 
-Incentives
-- Agents are incentivized to sponsor principals who are willing to transact or risk not be selected as a preferred broker.
-- Principals are incentivized to only enter IOIs where they are willing to transact or risk not be sponsored.
-- Satisfaction rankings reward agents for acting in the best interest of principals in situations where that might mean not transacting.
+# API
+Github Repo: https://github.com/kylewstewart/IOI-Match-API
 
-# Skateboard
-
-The skateboard will focus on building out the functional features, while many administrative feature will be added to later versions.
-
-The skateboard is based on an implementation for the equity markets and principals will be referred to as Investment Advisors and agents will be Broker Dealers.
-
-# Mockups
-
-![alt text](http://preview.ibb.co/hmT2Hk/Login_Page.png)
-![alt text](http://preview.ibb.co/mdLeV5/Investment_Advisors_Page.png)
-![alt text](http://preview.ibb.co/fQjOq5/Broker_s_Page.png)
-
-# Stack
-- React Client
-- Rails API (https://github.com/kylewstewart/IOI-Match-API)
-- Websockets
+# Technology
+Browser Client: React, Semantic UI React
+API: Ruby on Rails
