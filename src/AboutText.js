@@ -37,7 +37,7 @@ class AboutText extends Component {
                   </Header>
                 </Accordion.Title>
                 <Accordion.Content>
-                  <p>Only an investor can enter an indications of interest. All IOIs must include the stock, a side and a ranked list of brokers. An investor can only include brokers from their list of sponsors and may choose to include all or a subset of the full list.</p>
+                  <p>Only an investor can enter an indication of interest. All IOIs must include the stock, a side and a ranked list of brokers. An investor can only include brokers from their list of sponsors and may choose to include all or a subset of the full list.</p>
                   <Image
                     src='/Assets/ioi.gif'
                     size='massive'
